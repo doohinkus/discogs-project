@@ -3,7 +3,7 @@ import App from "./App";
 
 describe("app interactions", () => {
   beforeEach(async () => {
-    await act(async () => await render(<App />));
+    await act(async (): Promise<any> => await render(<App />));
   });
   afterEach(async () => {
     cleanup();
@@ -13,7 +13,7 @@ describe("app interactions", () => {
   });
   test("renders first page of content", async () => {
     await waitFor(async () =>
-      expect(await screen.getByText(/Andrea/i)).toBeInTheDocument()
+      expect(screen.getByText(/Andrea/i)).toBeInTheDocument()
     );
   });
 });
