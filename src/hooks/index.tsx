@@ -2,8 +2,54 @@ import React, { useEffect, useState } from "react";
 import { releaseData } from "../data/data";
 export function useReleaseData() {
   // loading, loaded, failed
+  const defaultState = {
+    releases: [
+      {
+        year: 0,
+        title: "",
+      },
+    ],
+  };
   const [loadState, setLoadState] = useState("loading");
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(defaultState);
+  const handleSortByTitle: any = () => {
+    setData({
+      releases: [
+        ...data?.releases?.sort((a, b) => {
+          const nameA = a.title.toUpperCase(); // ignore upper and lowercase
+          const nameB = b.title.toUpperCase(); // ignore upper and lowercase
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+
+          // names must be equal
+          return 0;
+        }),
+      ],
+    });
+  };
+  const handleSortByYear: any = () => {
+    setData({
+      releases: [
+        ...data?.releases?.sort((a, b) => {
+          const yearA: number = a.year;
+          const yearB: number = b.year;
+          if (yearA < yearB) {
+            return -1;
+          }
+          if (yearA > yearB) {
+            return 1;
+          }
+
+          // names must be equal
+          return 0;
+        }),
+      ],
+    });
+  };
 
   useEffect(() => {
     let mounted: boolean = true;
@@ -19,7 +65,7 @@ export function useReleaseData() {
       } catch (err) {
         if (mounted) {
           setLoadState("failed");
-          setData(null);
+          // setData({ releases: [{ title: "", year: 0 }] });
           console.log(err);
         }
       }
@@ -30,13 +76,14 @@ export function useReleaseData() {
     };
   }, []);
 
-  return [data, loadState];
+  return [data, loadState, handleSortByTitle, handleSortByYear];
 }
 
 export function usePagination(pageSize: number, array: []) {
   const size: number = pageSize || 0;
   const length: number = array?.length + size;
   const [page, setPage] = useState({ start: 0, end: size });
+
   function handleNextPage() {
     const start = page.end;
     const end = page.end + size;
@@ -63,5 +110,11 @@ export function usePagination(pageSize: number, array: []) {
     // return page;
   }
   const paginatedArray: object[] = array?.slice(page.start, page.end);
-  return { page, handleNextPage, handlePrevPage, paginatedArray };
+
+  return {
+    page,
+    handleNextPage,
+    handlePrevPage,
+    paginatedArray,
+  };
 }

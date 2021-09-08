@@ -10,11 +10,19 @@ export default function Releases({ ...props }) {
     <div>
       {paginatedArray?.map((release: any, index: number) => (
         // separate into album component
-        <div key={index}>{release.artist}</div>
+        <div key={index}>
+          {release.artist} : {release.year}
+        </div>
       ))}
-      {/* Add a11y */}
-      <button onClick={handlePrevPage}>prev</button>
-      <button onClick={handleNextPage}>next</button>
+      {/* separate into na component */}
+      {/* Add a11y, swtich case for enter, left arrow, space bar */}
+      <button onClick={handlePrevPage} onKeyDown={handlePrevPage}>
+        prev
+      </button>
+      {/* Add a11y, swtich case for enter, right arrow, space bar, resuse function */}
+      <button onClick={handleNextPage} onKeyDown={handleNextPage}>
+        next
+      </button>
       {JSON.stringify(page)}
     </div>
   );
