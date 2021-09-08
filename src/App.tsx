@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
 import { useReleaseData } from "./hooks";
 import Releases from "./components/Releases";
 
 function App() {
   const [data, loadState] = useReleaseData();
-  console.log(data, " ", loadState);
+  // console.log(data, " ", loadState);
   return (
     <div className="App">
       <header className="App-header">header</header>

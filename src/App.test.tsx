@@ -1,17 +1,19 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, cleanup, act, waitFor } from "@testing-library/react";
 import App from "./App";
-jest.mock("./data/data", () => {
-  const releases = [{}];
-  return {
-    releaseData: jest.fn(() => Promise.resolve(releases)),
-  };
-});
-test("renders withour crashing", () => {
-  render(<App />);
-});
-test("renders loading message", async () => {
-  const { getByText } = render(<App />);
-  // console.log(container);
-  expect(getByText(/Loading/i)).toBeInTheDocument();
+
+describe("app interactions", () => {
+  beforeEach(async () => {
+    await act(async () => await render(<App />));
+  });
+  afterEach(async () => {
+    cleanup();
+  });
+  test("renders some loading...", async () => {
+    expect(screen.getByText(/Loading../i)).toBeInTheDocument();
+  });
+  test("renders first page of content", async () => {
+    await waitFor(async () =>
+      expect(await screen.getByText(/Andrea/i)).toBeInTheDocument()
+    );
+  });
 });

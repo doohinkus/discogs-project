@@ -6,22 +6,28 @@ export function useReleaseData() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
+    let mounted: boolean = true;
     let asycnCall = async () => {
-      setLoadState("loading");
-
+      // setLoadState("loading");
       try {
         let result: any = await releaseData();
-        setLoadState("loaded");
-        setData(result);
+        if (mounted) {
+          setLoadState("loaded");
+          setData(result);
+        }
         // console.log(result);
       } catch (err) {
-        setLoadState("failed");
-        setData(null);
-        console.log(err);
+        if (mounted) {
+          setLoadState("failed");
+          setData(null);
+          console.log(err);
+        }
       }
     };
     asycnCall();
-    // return () => setLoadState("loading");
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   return [data, loadState];
