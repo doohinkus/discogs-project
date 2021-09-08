@@ -1,5 +1,6 @@
 import { usePagination } from "../../hooks";
 import "./Releases.css";
+import Album from "../Album";
 // paginate
 // start, next, end
 // take array map the array
@@ -7,11 +8,17 @@ export default function Releases({ ...props }) {
   const { page, handleNextPage, handlePrevPage, paginatedArray } =
     usePagination(10, props?.data?.releases);
   return (
-    <div>
+    <main>
       {paginatedArray?.map((release: any, index: number) => (
         // separate into album component
         <div key={index}>
-          {release.artist} : {release.year}
+          <Album
+            artist={release.artist}
+            year={release.year}
+            catno={release.catno}
+            title={release.title}
+            thumb={release.thumb}
+          />
         </div>
       ))}
       {/* separate into na component */}
@@ -24,6 +31,6 @@ export default function Releases({ ...props }) {
         next
       </button>
       {JSON.stringify(page)}
-    </div>
+    </main>
   );
 }

@@ -1,5 +1,6 @@
 import { useReleaseData } from "./hooks";
 import Releases from "./components/Releases";
+import Header from "./components/Header";
 
 function App() {
   const [data, loadState, handleSortByTitle, handleSortByYear] =
@@ -8,9 +9,11 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">header</header>
-      <button onClick={handleSortByTitle}>Sort by title</button>
-      <button onClick={handleSortByYear}>Sort by year</button>
+      <Header />
+      <nav>
+        <button onClick={handleSortByTitle}>Sort by title</button>
+        <button onClick={handleSortByYear}>Sort by year</button>
+      </nav>
       {loadState === "loading" && "Loading..."}
       {loadState === "loaded" && <Releases data={data} />}
     </div>
