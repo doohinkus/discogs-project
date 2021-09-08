@@ -1,6 +1,15 @@
-.album {
+article {
+  /* position: relative; */
+}
+section {
+  /* position: relative; */
   border: 2px solid black;
 }
-.album span {
+.album img {
+  width: 60vw;
+  height: auto;
   display: block;
+  margin: auto;
+}
+.album__info {
 }

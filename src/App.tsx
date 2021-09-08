@@ -1,21 +1,30 @@
-import { useReleaseData } from "./hooks";
+import { useReleaseData, usePagination } from "./hooks";
 import Releases from "./components/Releases";
 import Header from "./components/Header";
+import Sort from "./components/Sort";
+import PageNav from "./components/PageNav";
 
 function App() {
   const [data, loadState, handleSortByTitle, handleSortByYear] =
     useReleaseData();
+  const { page, handleNextPage, handlePrevPage, paginatedArray } =
+    usePagination(10, data?.releases);
   //add sort here
 
   return (
     <div className="App">
       <Header />
-      <nav>
-        <button onClick={handleSortByTitle}>Sort by title</button>
-        <button onClick={handleSortByYear}>Sort by year</button>
-      </nav>
+      <Sort
+        handleSortByTitle={handleSortByTitle}
+        handleSortByYear={handleSortByYear}
+      />
+      <PageNav
+        handleNextPage={handleNextPage}
+        handlePrevPage={handlePrevPage}
+      />
+      {JSON.stringify(page)}
       {loadState === "loading" && "Loading..."}
-      {loadState === "loaded" && <Releases data={data} />}
+      {loadState === "loaded" && <Releases paginatedArray={paginatedArray} />}
     </div>
   );
 }
