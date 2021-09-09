@@ -10,7 +10,7 @@ function App() {
   const [data, loadState, handleSortByTitle, handleSortByYear] =
     useReleaseData();
   const { page, handleNextPage, handlePrevPage, paginatedArray } =
-    usePagination(5, data?.releases);
+    usePagination(6, data?.releases);
   //add sort here
   const appState: any = {
     loading: <p>Loading...</p>,
@@ -19,13 +19,13 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Sort
-        handleSortByTitle={handleSortByTitle}
-        handleSortByYear={handleSortByYear}
-      />
       <PageNav
         handleNextPage={handleNextPage}
         handlePrevPage={handlePrevPage}
+      />
+      <Sort
+        handleSortByTitle={handleSortByTitle}
+        handleSortByYear={handleSortByYear}
       />
       {JSON.stringify(page)}
       {appState[`${loadState}`]}

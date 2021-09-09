@@ -3,7 +3,13 @@
   margin: 0 auto;
   display: grid;
   grid-gap: 1rem;
+  /* border: 1px solid black; */
 }
+.release {
+  /* align-self: center; */
+  margin: auto;
+}
+
 @media (min-width: 450px) {
   .releases {
     grid-template-columns: repeat(2, 1fr);
@@ -13,6 +19,4 @@
   .releases {
     grid-template-columns: repeat(3, 1fr);
   }
-}
-.release {
 }

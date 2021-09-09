@@ -1,5 +1,16 @@
 nav.sort {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  width: 30%;
+  background: var(--interface-background-color);
+  color: white;
+  padding: var(--padding-sm);
+  margin: auto;
+  border-radius: var(--border-radius);
+}
+nav.sort select {
+  padding: var(--padding-sm);
+  margin: var(--padding-sm);
 }

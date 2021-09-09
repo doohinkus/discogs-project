@@ -17,25 +17,27 @@ section {
 }
 .image {
   /* border: 2px solid red; */
-  margin: 0.25rem;
+  /* margin: 0.25rem; */
+  /* max-width: var(--thumb-max-sm); */
+  height: auto;
+  border-radius: var(--border-radius);
 }
 img {
-  width: 95%;
-  max-width: var(--thumb-max);
-  height: auto;
-  border-radius: 1rem;
+  width: var(--thumb-max-sm);
+  height: var(--thumb-max-sm);
+  border-radius: var(--border-radius);
 }
 
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
   height: 100%;
-  width: 95%;
   opacity: 0;
   transition: 0.2s ease-in-out;
   background-color: rgb(0, 0, 0);
-  border-radius: 1rem;
+  border-radius: var(--border-radius);
   padding: 0.5rem;
   color: white;
 }
@@ -46,4 +48,17 @@ img {
 .album__info p,
 .album a {
   font-size: 1rem;
+}
+
+@media (min-width: 450px) {
+  img {
+    width: var(--thumb-max-md);
+    height: var(--thumb-max-md);
+    /* border-radius: var(--border-radius); */
+  }
+}
+@media (min-width: 900px) {
+  .releases {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
