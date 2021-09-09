@@ -2,11 +2,13 @@
   --thumb-max-sm: 300px;
   --thumb-max-md: 250px;
   --screen-max: 1200px;
+  --screen-min: 200px;
   --padding-sm: 0.25rem;
   --border-radius: 0.5rem;
   --interface-background-color: rgb(3, 3, 3);
   --interface-background-color-hover: rgba(0, 0, 0, 0.2);
   --interface-text-color-hover: rgba(0, 0, 0, 0.8);
+  --margin-sm: 1rem;
   --border-round: 50%;
   --button-next-width: 3rem;
   --button-next-height: var(--button-next-width);

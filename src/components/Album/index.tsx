@@ -35,12 +35,6 @@ export default function Album({
             </div>
           </div>
         </a>
-        {/* <div className="album__info">
-          <h2>{title}</h2>
-          <p>{artist}</p>
-          <p>{year}</p>
-          <p>{catno}</p>
-        </div> */}
       </section>
     </article>
   );

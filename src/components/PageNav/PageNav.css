@@ -1,7 +1,9 @@
 .pagination {
   max-width: var(--screen-max);
+  min-width: var(--screen-min);
   display: flex;
   justify-content: space-around;
+  margin: auto;
 }
 .pagination button {
   font-weight: 800;
@@ -12,9 +14,12 @@
   border: none;
   background: var(--interface-background-color);
   color: white;
+  margin: var(--margin-sm);
 }
 .pagination button:hover {
   background: var(--interface-background-color-hover);
   color: var(--interface-text-color-hover);
   transition: 0.2s ease-in-out;
+  width: calc(var(--button-next-width) - 3px);
+  height: calc(var(--button-next-height) - 3px);
 }
