@@ -18,9 +18,10 @@ export default function Sort({ ...props }) {
         name="filterSelection"
         defaultValue="title"
         onChange={handleSelect}
+        data-testid="sort"
       >
-        <option>title</option>
-        <option>year</option>
+        <option data-testid="title">title</option>
+        <option data-testid="year">year</option>
       </select>
     </nav>
   );

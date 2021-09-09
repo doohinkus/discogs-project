@@ -1,4 +1,11 @@
-import { render, screen, cleanup, act, waitFor } from "@testing-library/react";
+import {
+  render,
+  screen,
+  cleanup,
+  act,
+  waitFor,
+  fireEvent,
+} from "@testing-library/react";
 import App from "./App";
 
 describe("app interactions", () => {
@@ -15,5 +22,21 @@ describe("app interactions", () => {
     await waitFor(async () =>
       expect(screen.getByText(/Andrea/i)).toBeInTheDocument()
     );
+  });
+  test("sorts by title", async () => {
+    await waitFor(async () => {
+      fireEvent.change(screen.getByTestId("sort"), {
+        target: { value: "title" },
+      });
+      expect(screen.queryAllByText(/20 Hz/i)[0]).toBeInTheDocument();
+    });
+  });
+  test("sorts by year", async () => {
+    await waitFor(async () => {
+      fireEvent.change(screen.getByTestId("sort"), {
+        target: { value: "year" },
+      });
+      expect(screen.queryAllByText(/DJ-Kicks/i)[0]).toBeInTheDocument();
+    });
   });
 });
