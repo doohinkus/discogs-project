@@ -20,7 +20,8 @@ npm start
 
 To view test report:
 
-```npm run test:coverage
+```
+npm run test:coverage
 
 ```
 
