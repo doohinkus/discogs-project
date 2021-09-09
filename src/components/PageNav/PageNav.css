@@ -1,5 +1,5 @@
 .pagination {
-  max-width: var(--screen-max);
+  max-width: var(--nav-bar-max-width);
   min-width: var(--screen-min);
   display: flex;
   justify-content: space-around;

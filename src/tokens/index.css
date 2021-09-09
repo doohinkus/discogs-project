@@ -5,6 +5,7 @@
   --screen-min: 200px;
   --padding-sm: 0.25rem;
   --border-radius: 0.5rem;
+  --nav-bar-max-width: 500px;
   --interface-background-color: rgb(3, 3, 3);
   --interface-background-color-hover: rgba(0, 0, 0, 0.2);
   --interface-text-color-hover: rgba(0, 0, 0, 0.8);
