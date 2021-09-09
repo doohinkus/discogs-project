@@ -25,8 +25,12 @@ npm run test:coverage
 
 ```
 
+This is rough, but it has the basics: responsive grid, unit tests, and links to discog detail pages.
+
+MVP -> https://discogs-rp.surge.sh/
+
 Todo:
 
-- publish to github pages OR surge
-- add automated test coverage to github
 - improve css design
+- handle year 0 values
+- handle duplicate values
