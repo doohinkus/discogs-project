@@ -1,4 +1,5 @@
 import React from "react";
+import "./Sort.css";
 
 export default function Sort({ ...props }) {
   function handleSelect(e: any) {
@@ -10,12 +11,12 @@ export default function Sort({ ...props }) {
     }
   }
   return (
-    <nav id="sortOptions" aria-label="sorters">
-      <div id="sort">Sort by:</div>
+    <nav id="sortOptions" className="sort" aria-label="sorters">
+      <div id="sort">Sort by: </div>
       <select
         aria-labelledby="sort"
         name="filterSelection"
-        defaultValue=""
+        defaultValue="title"
         onChange={handleSelect}
       >
         <option>title</option>

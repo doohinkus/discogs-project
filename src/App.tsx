@@ -3,14 +3,18 @@ import Releases from "./components/Releases";
 import Header from "./components/Header";
 import Sort from "./components/Sort";
 import PageNav from "./components/PageNav";
+import "./App.css";
 
 function App() {
   const [data, loadState, handleSortByTitle, handleSortByYear] =
     useReleaseData();
   const { page, handleNextPage, handlePrevPage, paginatedArray } =
-    usePagination(10, data?.releases);
+    usePagination(5, data?.releases);
   //add sort here
-
+  const appState: any = {
+    loading: <p>Loading...</p>,
+    loaded: <Releases paginatedArray={paginatedArray} />,
+  };
   return (
     <div className="App">
       <Header />
@@ -23,8 +27,9 @@ function App() {
         handlePrevPage={handlePrevPage}
       />
       {JSON.stringify(page)}
-      {loadState === "loading" && "Loading..."}
-      {loadState === "loaded" && <Releases paginatedArray={paginatedArray} />}
+      {appState[`${loadState}`]}
+      {/* {loadState === "loading" && "Loading..."}
+      {loadState === "loaded" && <Releases paginatedArray={paginatedArray} />} */}
     </div>
   );
 }

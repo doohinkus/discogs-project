@@ -54,6 +54,7 @@ export function useReleaseData() {
   useEffect(() => {
     let mounted: boolean = true;
     let asycnCall = async () => {
+      console.log("Use EFFECT");
       // setLoadState("loading");
       try {
         let result: any = await releaseData();

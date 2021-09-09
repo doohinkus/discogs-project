@@ -12,6 +12,7 @@ export default function Releases({ ...props }) {
             catno={release.catno}
             title={release.title}
             thumb={release.thumb}
+            id={release.id}
           />
         </div>
       ))}
