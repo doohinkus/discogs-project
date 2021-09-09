@@ -25,7 +25,7 @@ npm run test:coverage
 
 ```
 
-This is rough, but it has the basics: responsive grid, unit tests, and links to discog detail pages.
+This is rough, but it has the basics: responsive grid, unit tests, clean Axe report, and links to discog detail pages.
 
 MVP -> https://discogs-rafael.surge.sh/
 
