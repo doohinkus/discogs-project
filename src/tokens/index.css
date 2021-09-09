@@ -1,0 +1,9 @@
+:root {
+  /* --screen-sm: 450px;
+  --screen-md: 900px; */
+  --thumb-max: 300px;
+  --screen-max: 1200px;
+  --border-radius: 1rem;
+  --sans-serif-stack: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+}

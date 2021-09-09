@@ -1,11 +1,12 @@
 import "./Releases.css";
 import Album from "../Album";
+import "./Releases.css";
 
 export default function Releases({ ...props }) {
   return (
-    <main>
+    <main className="releases">
       {props?.paginatedArray?.map((release: any, index: number) => (
-        <div key={index}>
+        <div key={index} className="release">
           <Album
             artist={release.artist}
             year={release.year}

@@ -22,17 +22,25 @@ export default function Album({
           href={`https://www.discogs.com/release/${id}`}
           aria-label={`Disover more about ${title} with ${id}`}
         >
-          <img
-            src={thumb?.length > 0 ? thumb : "https://fakeimg.pl/150x150/"}
-            alt={`Album cover for ${title}`}
-          />
+          <div className="image">
+            <img
+              src={thumb?.length > 0 ? thumb : "https://fakeimg.pl/150x150/"}
+              alt={`Album cover for ${title}`}
+            />
+            <div className="overlay">
+              <h2>{title}</h2>
+              <p>{artist}</p>
+              <p>{year}</p>
+              <p>{catno}</p>
+            </div>
+          </div>
         </a>
-        <div className="album__info">
+        {/* <div className="album__info">
           <h2>{title}</h2>
           <p>{artist}</p>
           <p>{year}</p>
           <p>{catno}</p>
-        </div>
+        </div> */}
       </section>
     </article>
   );

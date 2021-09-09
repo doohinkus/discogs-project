@@ -1,6 +1,5 @@
 .App {
-  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
-    sans-serif;
+  font-family: var(--sans-serif-stack);
 
   /* font-size: 1rem; */
 }
