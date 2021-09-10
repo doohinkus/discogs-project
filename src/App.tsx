@@ -7,14 +7,25 @@ import "./tokens/index.css";
 import "./App.css";
 
 function App() {
+  const defaultState = {
+    releases: [
+      {
+        year: 0,
+        title: "",
+      },
+    ],
+  };
   const [data, loadState, handleSortByTitle, handleSortByYear] =
-    useReleaseData();
+    useReleaseData(defaultState);
   const { page, handleNextPage, handlePrevPage, paginatedArray } =
     usePagination(6, data?.releases);
   // state of the app
   const appState: any = {
     loading: <p>Loading...</p>,
     loaded: <Releases paginatedArray={paginatedArray} />,
+    failed: (
+      <p>Ooops! something went wrong. Please check console for details.</p>
+    ),
   };
   return (
     <div className="App">
