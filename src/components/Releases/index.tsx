@@ -1,12 +1,11 @@
-import "./Releases.css";
 import Album from "../Album";
-import "./Releases.css";
+import styles from "./Releases.module.css";
 
 export default function Releases({ ...props }) {
   return (
-    <main className="releases">
+    <main className={styles.releases}>
       {props?.paginatedArray?.map((release: any, index: number) => (
-        <div key={index} className="release">
+        <div key={index} className={styles.release}>
           <Album
             artist={release.artist}
             year={release.year}

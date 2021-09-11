@@ -5,11 +5,9 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding: 0.5rem;
   /* border: 2px solid black; */
-  width: 100vw;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  /* width: 100vw; */
 }
 .thumb {
   width: var(--thumb-max-sm);
@@ -18,8 +16,7 @@
 }
 
 .overlay {
-  padding: 0.5rem;
-  line-height: 0.25rem;
+  height: auto;
 }
 .title {
   font-size: 1rem;
@@ -27,17 +24,18 @@
   line-height: 1rem;
   margin: 0;
 }
+.title,
+.year,
+.catno,
 .artist {
+  padding-left: 0.5rem;
+  line-height: 0.25rem;
 }
-.year {
-}
-.catno {
-}
+
 .image:hover {
   background-color: rgba(0, 0, 0, 0.7);
-  width: 100vw;
-  color: white;
   transition: all 0.3s ease-in-out;
+  color: white;
 }
 
 .album__info p,

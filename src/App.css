@@ -1,5 +1,8 @@
-.App {
+.App,
+html,
+body {
   font-family: var(--sans-serif-stack);
-
+  margin: 0;
+  padding: 0;
   /* font-size: 1rem; */
 }

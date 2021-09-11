@@ -1,13 +1,12 @@
 .releases {
-  max-width: var(--screen-max);
+  /* max-width: var(--screen-max); */
   margin: 0 auto;
   display: grid;
   grid-gap: 1rem;
-  /* border: 1px solid black; */
 }
 .release {
   /* align-self: center; */
-  margin: auto;
+  /* margin: auto; */
 }
 
 @media (min-width: 450px) {
