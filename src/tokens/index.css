@@ -9,6 +9,7 @@
   --interface-background-color: rgb(3, 3, 3);
   --interface-background-color-hover: rgba(0, 0, 0, 0.2);
   --interface-text-color-hover: rgba(0, 0, 0, 0.8);
+  --interface-text-color: rgb(4, 4, 4);
   --margin-sm: 1rem;
   --border-round: 50%;
   --button-next-width: 3rem;

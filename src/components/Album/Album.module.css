@@ -27,14 +27,22 @@
 .title,
 .year,
 .catno,
+.link,
 .artist {
   padding-left: 0.5rem;
   line-height: 0.25rem;
+}
+.link {
+  font-weight: bold;
+  color: var(--interface-text-color);
 }
 
 .image:hover {
   background-color: rgba(0, 0, 0, 0.7);
   transition: all 0.3s ease-in-out;
+  color: white;
+}
+.image:hover .link {
   color: white;
 }
 
