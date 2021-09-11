@@ -9,13 +9,19 @@
   /* margin: auto; */
 }
 
-@media (min-width: 450px) {
+/* @media (min-width: 450px) {
   .releases {
     grid-template-columns: repeat(2, 1fr);
   }
+} */
+@media (min-width: 730px) {
+  .releases {
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+  }
 }
-@media (min-width: 900px) {
+/* @media (min-width: 900px) {
   .releases {
     grid-template-columns: repeat(3, 1fr);
   }
-}
+} */
