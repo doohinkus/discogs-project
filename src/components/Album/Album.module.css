@@ -12,6 +12,7 @@
   height: var(--thumb-max-sm);
   border-radius: var(--border-radius);
   box-shadow: 0 0 0.09rem rgba(255, 255, 255, 0.6);
+  filter: blur(0.2rem);
 }
 
 .overlay {
@@ -41,6 +42,9 @@
   transition: all 0.3s ease-in-out;
   color: white;
 }
+.image:hover .thumb {
+  filter: blur(0);
+}
 .image:hover .link {
   color: white;
 }
@@ -55,7 +59,6 @@
     display: block;
     padding: 0.5rem;
     margin: auto;
-    /* background: rgba(0, 0, 0, 0.1); */
     border-radius: var(--border-radius);
   }
   .thumb {
@@ -72,8 +75,12 @@
   .image:hover {
     background-color: inherit;
     transition: none;
-    /* transition: all 0.3s ease-in-out; */
     color: var(--interface-text-color);
+  }
+  .image:hover .thumb {
+    filter: blur(0);
+    /* width: calc(var(--thumb-max-sm) * 1.9); */
+    /* height: calc(var(--thumb-max-sm) * 1.9); */
   }
   .image:hover .link {
     color: var(--interface-text-color);

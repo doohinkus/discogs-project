@@ -20,8 +20,8 @@
     text-align: center;
   }
 }
-/* @media (min-width: 900px) {
+@media (min-width: 900px) {
   .releases {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
-} */
+}
