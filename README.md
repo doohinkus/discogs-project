@@ -27,10 +27,9 @@ npm run test:coverage
 
 This is rough, but it has the basics: responsive grid, unit tests, clean Axe report, and links to discog detail pages.
 
-MVP -> https://discogs-project-rp.surge.sh/
+MVP -> https://discog-style-refactor.surge.sh/
 
 Todo:
 
-- improve css design
 - handle year 0 values
 - handle duplicate values
