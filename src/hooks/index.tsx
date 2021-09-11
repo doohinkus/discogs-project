@@ -1,15 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { releaseData } from "../data/data";
 export function useReleaseData(defaultState: any) {
-  // loading, loaded, failed
-  // const defaultState = {
-  //   releases: [
-  //     {
-  //       year: 0,
-  //       title: "",
-  //     },
-  //   ],
-  // };
   const [loadState, setLoadState] = useState("loading");
   const [data, setData] = useState(defaultState);
   const handleSortByTitle: any = () => {

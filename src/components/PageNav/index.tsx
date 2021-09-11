@@ -1,12 +1,15 @@
-import React from "react";
 import Sort from "../Sort";
-import "./PageNav.css";
+import styles from "./PageNav.module.css";
 
 export default function PageNav({ ...props }) {
   return (
-    <nav className="pagination">
+    <nav className={styles.pagination}>
       {/* Add a11y, swtich case for enter, left arrow, space bar */}
-      <button onClick={props.handlePrevPage} onKeyDown={props.handlePrevPage}>
+      <button
+        className={styles.button}
+        onClick={props.handlePrevPage}
+        onKeyDown={props.handlePrevPage}
+      >
         prev
       </button>
       <Sort
@@ -14,7 +17,11 @@ export default function PageNav({ ...props }) {
         handleSortByYear={props.handleSortByYear}
       />
       {/* Add a11y, swtich case for enter, right arrow, space bar, resuse function */}
-      <button onClick={props.handleNextPage} onKeyDown={props.handleNextPage}>
+      <button
+        className={styles.button}
+        onClick={props.handleNextPage}
+        onKeyDown={props.handleNextPage}
+      >
         next
       </button>
     </nav>

@@ -1,4 +1,4 @@
-nav.sort {
+.sort {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -10,7 +10,7 @@ nav.sort {
   margin: auto;
   border-radius: var(--border-radius);
 }
-nav.sort select {
+.select {
   padding: var(--padding-sm);
   margin: var(--padding-sm);
 }

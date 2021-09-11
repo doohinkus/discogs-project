@@ -5,7 +5,7 @@
   justify-content: space-around;
   margin: auto;
 }
-.pagination button {
+.button {
   font-weight: 800;
   width: var(--button-next-width);
   height: var(--button-next-height);
@@ -16,7 +16,7 @@
   color: white;
   margin: var(--margin-sm);
 }
-.pagination button:hover {
+.button:hover {
   background: var(--interface-background-color-hover);
   color: var(--interface-text-color-hover);
   transition: 0.2s ease-in-out;

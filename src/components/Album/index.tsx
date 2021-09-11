@@ -1,4 +1,4 @@
-import "./Album.css";
+import styles from "./Album.module.css";
 type AlbumProps = {
   title: String;
   artist: String;
@@ -17,24 +17,25 @@ export default function Album({
 }: AlbumProps) {
   return (
     <article>
-      <section className="album">
-        <a
-          href={`https://www.discogs.com/release/${id}`}
-          aria-label={`Disover more about ${title} with ${id}`}
-        >
-          <div className="image">
+      <section className={styles.album}>
+        <div className={styles.image}>
+          <a
+            href={`https://www.discogs.com/release/${id}`}
+            aria-label={`Disover more about ${title} with ${id}`}
+          >
             <img
               src={thumb?.length > 0 ? thumb : "https://fakeimg.pl/150x150/"}
+              className={styles.thumb}
               alt={`Album cover for ${title}`}
             />
-            <div className="overlay">
-              <h2>{title}</h2>
-              <p>{artist}</p>
-              <p>{year}</p>
-              <p>{catno}</p>
-            </div>
+          </a>
+          <div className={styles.overlay}>
+            <h2 className={styles.title}>{title}</h2>
+            <p className={styles.artist}>{artist}</p>
+            <p className={styles.year}>{year}</p>
+            <p className={styles.catno}>{catno}</p>
           </div>
-        </a>
+        </div>
       </section>
     </article>
   );
