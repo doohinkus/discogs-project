@@ -21,7 +21,7 @@
 .title {
   font-size: 1rem;
   text-overflow: ellipsis;
-  line-height: 1rem;
+  /* line-height: 1.5rem; */
   margin: 0;
 }
 .title,
@@ -29,14 +29,22 @@
 .catno,
 .link,
 .artist {
-  padding-left: 0.5rem;
+  margin-left: 0.5rem;
+}
+.year,
+.catno,
+.link,
+.artist {
   line-height: 0.25rem;
 }
 .link {
   font-weight: bold;
   color: var(--interface-text-color);
 }
-
+.link:hover {
+  color: white;
+  background-color: var(--interface-text-color);
+}
 .image:hover {
   background-color: rgba(0, 0, 0, 0.7);
   transition: all 0.3s ease-in-out;
@@ -55,6 +63,10 @@
 }
 
 @media (min-width: 730px) {
+  /* .title,
+  .catno {
+    line-height: 1.25rem;
+  } */
   .image {
     display: block;
     padding: 0.5rem;
@@ -84,6 +96,10 @@
   }
   .image:hover .link {
     color: var(--interface-text-color);
+  }
+  .image:hover .link:hover {
+    color: white;
+    background-color: var(--interface-text-color);
   }
 }
 /* @media (min-width: 450px) {
