@@ -1,7 +1,6 @@
-import { useReleaseData, usePagination } from "./hooks";
+import { useReleaseData, useInfiniteScroll } from "./hooks";
 import Releases from "./components/Releases";
 import Header from "./components/Header";
-import Sort from "./components/Sort";
 import PageNav from "./components/PageNav";
 import "./tokens/index.css";
 import "./App.css";
@@ -17,8 +16,9 @@ function App() {
   };
   const [data, loadState, handleSortByTitle, handleSortByYear] =
     useReleaseData(defaultState);
-  const { page, handleNextPage, handlePrevPage, paginatedArray } =
-    usePagination(6, data?.releases);
+
+  const [paginatedArray] = useInfiniteScroll(data);
+
   // state of the app
   const appState: any = {
     loading: <p>Loading...</p>,
@@ -31,8 +31,6 @@ function App() {
     <div className="App">
       <Header />
       <PageNav
-        handleNextPage={handleNextPage}
-        handlePrevPage={handlePrevPage}
         handleSortByTitle={handleSortByTitle}
         handleSortByYear={handleSortByYear}
       />

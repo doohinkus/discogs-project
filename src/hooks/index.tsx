@@ -51,10 +51,8 @@ export function useReleaseData(defaultState: any) {
           setData(result);
         }
       } catch (err) {
-        if (mounted) {
-          setLoadState("failed");
-          console.log(err);
-        }
+        setLoadState("failed");
+        console.log(err);
       }
     };
     asycnCall();
@@ -66,17 +64,19 @@ export function useReleaseData(defaultState: any) {
   return [data, loadState, handleSortByTitle, handleSortByYear];
 }
 
-export function usePagination(pageSize: number, array: any) {
+export function usePagination(pageSize: number, array: any): any {
   const size: number = pageSize || 0;
-  const length: number = array?.length + size;
+  const length: number = array?.length;
   const [page, setPage] = useState({ start: 0, end: size });
+  const [count, setCount] = useState(1);
 
-  function handleNextPage() {
-    const start = page.end;
-    const end = page.end + size;
+  async function handleNextPage() {
+    const end: number = page.end + size * count;
     if (end < length) {
-      setPage({
-        start,
+      console.log("hey", end);
+      await setCount(count + 1);
+      await setPage({
+        start: 0,
         end,
       });
     }
@@ -90,15 +90,31 @@ export function usePagination(pageSize: number, array: any) {
         end,
       });
     }
+
     // console.log(page);
     // return page;
   }
-  const paginatedArray: object[] = array?.slice(page.start, page.end);
+  const paginatedArray: object[] = array?.slice(0, page.end);
 
-  return {
-    page,
-    handleNextPage,
-    handlePrevPage,
-    paginatedArray,
-  };
+  return [handleNextPage, handlePrevPage, paginatedArray];
+}
+
+export function useInfiniteScroll(data: any) {
+  const [count, setCount] = useState(5);
+  const paginatedArray = data?.releases?.slice(0, count);
+
+  function handleScroll() {
+    if (
+      window.innerHeight + document.documentElement.scrollTop !==
+      document.documentElement.offsetHeight
+    )
+      return;
+    setCount(count + 1 * 4);
+  }
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [count]);
+
+  return [paginatedArray];
 }
