@@ -17,7 +17,7 @@ function App() {
   const [data, loadState, handleSortByTitle, handleSortByYear] =
     useReleaseData(defaultState);
 
-  const [paginatedArray] = useInfiniteScroll(data);
+  const [paginatedArray] = useInfiniteScroll(data, 5);
 
   // state of the app
   const appState: any = {

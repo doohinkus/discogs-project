@@ -99,22 +99,22 @@ export function usePagination(pageSize: number, array: any): any {
   return [handleNextPage, handlePrevPage, paginatedArray];
 }
 
-export function useInfiniteScroll(data: any) {
-  const [count, setCount] = useState(5);
+export function useInfiniteScroll(data: any, page: number) {
+  const [count, setCount] = useState(page);
   const paginatedArray = data?.releases?.slice(0, count);
 
-  function handleScroll() {
+  function handleScroll(): any {
     if (
       window.innerHeight + document.documentElement.scrollTop !==
       document.documentElement.offsetHeight
     )
       return;
-    setCount(count + 1 * 4);
+    setCount(count + 1 * page);
   }
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [count]);
 
-  return [paginatedArray];
+  return [paginatedArray, handleScroll];
 }

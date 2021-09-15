@@ -1,32 +1,83 @@
 import { renderHook, act } from "@testing-library/react-hooks";
-import { usePagination } from "./index";
+import { useInfiniteScroll } from "./index";
 
-describe("usePagination", () => {
-  test("show correct default values", () => {
+describe("useInfiniteScroll", () => {
+  const defaultState = {
+    releases: [
+      {
+        year: 1900,
+        title: "nine",
+      },
+      {
+        year: 1878,
+        title: "old tyme",
+      },
+      {
+        year: 1990,
+        title: "retro",
+      },
+      {
+        year: 1990,
+        title: "retro",
+      },
+      {
+        year: 1990,
+        title: "retro",
+      },
+      {
+        year: 1990,
+        title: "retro",
+      },
+      {
+        year: 1990,
+        title: "retro",
+      },
+      {
+        year: 1990,
+        title: "retro",
+      },
+      {
+        year: 1990,
+        title: "retro",
+      },
+      {
+        year: 1990,
+        title: "retro",
+      },
+      {
+        year: 1990,
+        title: "retro",
+      },
+      {
+        year: 1990,
+        title: "retro",
+      },
+      {
+        year: 1990,
+        title: "retro",
+      },
+      {
+        year: 1990,
+        title: "retro",
+      },
+    ],
+  };
+  test("show correct default values (5)", () => {
     const arr = [1, 2, 3, 4];
-    const { result } = renderHook(() => usePagination(2, arr));
-    expect(result.current.page).toEqual({ start: 0, end: 2 });
-    expect(result.current.paginatedArray).toEqual([1, 2]);
+    const { result } = renderHook(() => useInfiniteScroll(defaultState, 5));
+    // expect().toEqual({ start: 0, end: 2 });
+    act(() => {
+      result.current[1]();
+      console.log(result.current[1]());
+    });
+    expect(result.current[0].length).toEqual(5);
   });
-  test("show correct values for next page", async () => {
-    const arr = [1, 2, 3, 4];
-    const { result } = renderHook(() => usePagination(2, arr));
+  test("show correct default values when scroll is triggered (10)", () => {
+    const { result } = renderHook(() => useInfiniteScroll(defaultState, 10));
     act(() => {
-      result.current.handleNextPage();
+      result.current[1]();
     });
-    expect(result.current.page).toEqual({ start: 2, end: 4 });
-    expect(result.current.paginatedArray).toEqual([3, 4]);
-  });
-  test("show correct values for prev page", async () => {
-    const arr = [1, 2, 3, 4, 5, 6, 7, 8];
-    const { result } = renderHook(() => usePagination(2, arr));
-    act(() => {
-      result.current.handleNextPage();
-    });
-    act(() => {
-      result.current.handlePrevPage();
-    });
-    expect(result.current.page).toEqual({ start: 0, end: 2 });
-    expect(result.current.paginatedArray).toEqual([1, 2]);
+
+    expect(result.current[0].length).toEqual(10);
   });
 });
