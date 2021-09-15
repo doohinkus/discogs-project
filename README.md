@@ -1,4 +1,4 @@
-# Discogs Frontend Project
+# Discogs Frontend Project Infinite Scroll
 
 This project allows people to explore albums. It uses the following stack:
 
@@ -27,7 +27,7 @@ npm run test:coverage
 
 This is rough, but it has the basics: responsive grid, unit tests, clean Axe report, and links to discog detail pages.
 
-MVP -> https://discog-style-refactor.surge.sh/
+MVP -> https://discogs-infinite-scroll-rp.surge.sh/
 
 Todo:
 
