@@ -1,5 +1,7 @@
 # Discogs Frontend Project Infinite Scroll
 
+[![Build Status](https://app.travis-ci.com/doohinkus/discogs-project.svg?branch=master)](https://app.travis-ci.com/doohinkus/discogs-project)
+
 This project allows people to explore albums. It uses the following stack to achieve mobile, first responsive design:
 
 - React JS
