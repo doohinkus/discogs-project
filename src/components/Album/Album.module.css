@@ -1,5 +1,15 @@
 .album {
   position: relative;
+  animation-delay: 0.3s;
+  animation: fadeIn 0.2s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .image {
   display: flex;

@@ -2,6 +2,7 @@ import { useReleaseData, useInfiniteScroll } from "./hooks";
 import Releases from "./components/Releases";
 import Header from "./components/Header";
 import PageNav from "./components/PageNav";
+import Loader from "./components/Loader";
 import "./tokens/index.css";
 import "./App.css";
 
@@ -18,10 +19,9 @@ function App() {
     useReleaseData(defaultState);
 
   const [paginatedArray] = useInfiniteScroll(data, 5);
-
   // state of the app
   const appState: any = {
-    loading: <p>Loading...</p>,
+    loading: <Loader />,
     loaded: <Releases paginatedArray={paginatedArray} />,
     failed: (
       <p>Ooops! something went wrong. Please check console for details.</p>

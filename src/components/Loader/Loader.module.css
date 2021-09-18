@@ -1,0 +1,21 @@
+.loader {
+  text-align: center;
+  width: 3rem;
+  animation: spin 2s infinite linear;
+  filter: grayscale(100%);
+}
+.container {
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+  margin: auto;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
