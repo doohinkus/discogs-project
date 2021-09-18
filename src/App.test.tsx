@@ -15,7 +15,7 @@ describe("app interactions", () => {
   afterEach(async () => {
     cleanup();
   });
-  test("renders some loading...", async () => {
+  test("renders loading... message", async () => {
     expect(screen.getByText(/Loading../i)).toBeInTheDocument();
   });
   test("renders first page of content", async () => {
