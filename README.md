@@ -1,6 +1,6 @@
 # Discogs Frontend Project Infinite Scroll
 
-This project allows people to explore albums. It uses the following stack:
+This project allows people to explore albums. It uses the following stack to achieve mobile, first responsive design:
 
 - React JS
 - Styled Components
