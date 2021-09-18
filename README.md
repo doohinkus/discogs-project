@@ -3,6 +3,7 @@
 This project allows people to explore albums. It uses the following stack:
 
 - React JS
+- Styled Components
 - CSS3 Custom Properties
 - React Testing Library
 
