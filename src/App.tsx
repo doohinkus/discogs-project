@@ -19,14 +19,7 @@ function App() {
     useReleaseData(defaultState);
 
   const [paginatedArray] = useInfiniteScroll(data, 5);
-  // state of the app
-  const appState: any = {
-    loading: <Loader />,
-    loaded: <Releases paginatedArray={paginatedArray} />,
-    failed: (
-      <p>Ooops! something went wrong. Please check console for details.</p>
-    ),
-  };
+
   return (
     <div className="App">
       <Header />
@@ -34,9 +27,8 @@ function App() {
         handleSortByTitle={handleSortByTitle}
         handleSortByYear={handleSortByYear}
       />
-
       {/* {JSON.stringify(page)} */}
-      {appState[`${loadState}`]}
+      <Releases paginatedArray={paginatedArray} loadState={loadState} />
     </div>
   );
 }

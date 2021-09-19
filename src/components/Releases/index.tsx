@@ -1,8 +1,9 @@
 import Album from "../Album";
 import styles from "./Releases.module.css";
+import Loader from "../Loader";
 
 export default function Releases({ ...props }) {
-  return (
+  const releases = (
     <main className={styles.releases}>
       {props?.paginatedArray?.map((release: any, index: number) => (
         <div key={index} className={styles.release}>
@@ -18,4 +19,15 @@ export default function Releases({ ...props }) {
       ))}
     </main>
   );
+
+  switch (props.loadState) {
+    case "loading":
+      return <Loader />;
+    case "loaded":
+      return releases;
+    default:
+      return (
+        <div>Oops something went wrong, please check console for details.</div>
+      );
+  }
 }
