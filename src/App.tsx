@@ -2,7 +2,6 @@ import { useReleaseData, useInfiniteScroll } from "./hooks";
 import Releases from "./components/Releases";
 import Header from "./components/Header";
 import PageNav from "./components/PageNav";
-import Loader from "./components/Loader";
 import "./tokens/index.css";
 import "./App.css";
 

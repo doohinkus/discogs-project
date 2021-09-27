@@ -1,8 +1,12 @@
+import React from "react";
 import Album from "../Album";
 import styles from "./Releases.module.css";
 import Loader from "../Loader";
-
-export default function Releases({ ...props }) {
+interface Props {
+  paginatedArray: any;
+  loadState: string;
+}
+export default React.memo(function Releases(props: Props) {
   const releases = (
     <main className={styles.releases}>
       {props?.paginatedArray?.map((release: any, index: number) => (
@@ -30,4 +34,4 @@ export default function Releases({ ...props }) {
         <div>Oops something went wrong, please check console for details.</div>
       );
   }
-}
+});
