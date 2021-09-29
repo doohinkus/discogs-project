@@ -64,7 +64,9 @@ describe("useInfiniteScroll", () => {
   };
   test("show correct default values (5)", () => {
     const arr = [1, 2, 3, 4];
-    const { result } = renderHook(() => useInfiniteScroll(defaultState, 5));
+    const { result } = renderHook(() =>
+      useInfiniteScroll(defaultState.releases, 5)
+    );
     // expect().toEqual({ start: 0, end: 2 });
     act(() => {
       result.current[1]();
@@ -73,7 +75,9 @@ describe("useInfiniteScroll", () => {
     expect(result.current[0].length).toEqual(5);
   });
   test("show correct default values when scroll is triggered (10)", () => {
-    const { result } = renderHook(() => useInfiniteScroll(defaultState, 10));
+    const { result } = renderHook(() =>
+      useInfiniteScroll(defaultState.releases, 10)
+    );
     act(() => {
       result.current[1]();
     });

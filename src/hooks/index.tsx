@@ -88,7 +88,7 @@ export function usePagination(pageSize: number, array: any): any {
 
 export function useInfiniteScroll(data: any, page: number) {
   const [count, setCount] = useState(page);
-  const paginatedArray = data?.releases?.slice(0, count);
+  const paginatedArray = data?.slice(0, count);
 
   function handleScroll(): any {
     if (
