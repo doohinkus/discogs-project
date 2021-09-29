@@ -6,6 +6,7 @@ This project allows people to explore albums. It uses the following stack to ach
 
 - React JS
 - Styled Components
+- Zustand for state management
 - CSS3 Custom Properties
 - React Testing Library
 - Travis & Github Actions CI/CD test coverage
