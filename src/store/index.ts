@@ -2,16 +2,16 @@ import create from "zustand";
 const useStore = create((set) => ({
   releases: [],
   loadState: "loading",
-  setLoadState: (ls) =>
+  setLoadState: (ls: any) =>
     set((state) => ({
       loadState: ls,
     })),
-  setReleases: (moreReleases) =>
-    set((state) => ({
+  setReleases: (moreReleases: any) =>
+    set((state: any) => ({
       releases: [...state.releases, ...moreReleases],
     })),
   sortByTitle: () =>
-    set((state) => ({
+    set((state: any) => ({
       releases: [...state.releases].sort((a, b) => {
         const nameA = a.title.toUpperCase(); // ignore upper and lowercase
         const nameB = b.title.toUpperCase(); // ignore upper and lowercase
@@ -26,7 +26,7 @@ const useStore = create((set) => ({
       }),
     })),
   sortByYear: () =>
-    set((state) => ({
+    set((state: any) => ({
       releases: [...state.releases].sort((a, b) => {
         const yearA = a.year;
         const yearB = b.year;
