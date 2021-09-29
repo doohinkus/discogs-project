@@ -17,4 +17,4 @@ jobs:
       - uses: actions/setup-node@v1
       - name: Setup and run tests
         working-directory: ./
-        run: npm i && npm run test:coverage
+        run: npm ci && npm run test:coverage
