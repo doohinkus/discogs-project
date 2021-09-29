@@ -1,47 +1,17 @@
 // import { useReleaseData, useInfiniteScroll } from "./hooks";
-import { useEffect } from "react";
-import { useInfiniteScroll } from "./hooks";
+import { useInfiniteScroll, useReleases } from "./hooks";
 import useStore from "./store";
 import Releases from "./components/Releases";
 import Header from "./components/Header";
 import PageNav from "./components/PageNav";
-import { releaseData } from "./data/data";
 
 import "./tokens/index.css";
 import "./App.css";
 
 function App() {
-  const {
-    releases,
-    loadState,
-    sortByTitle,
-    sortByYear,
-    setReleases,
-    setLoadState,
-  }: any = useStore();
+  const { releases, loadState, sortByTitle, sortByYear }: any = useStore();
   const [paginatedArray] = useInfiniteScroll(releases, 5);
-  // console.log(paginatedArray);
-  useEffect(() => {
-    let mounted: boolean = true;
-    let asycnCall = async () => {
-      try {
-        let result: any = await releaseData();
-        // console.log(result.releases);
-        if (mounted) {
-          setLoadState("loaded");
-          setReleases(result.releases);
-        }
-      } catch (err) {
-        setLoadState("failed");
-        console.log(err);
-      }
-    };
-    asycnCall();
-    return () => {
-      mounted = false;
-    };
-  }, []);
-
+  useReleases();
   return (
     <div className="App">
       <Header />

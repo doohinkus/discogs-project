@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { releaseData } from "../data/data";
+import useStore from "../store";
+
 export function useReleaseData(defaultState: any) {
   const [loadState, setLoadState] = useState("loading");
   const [data, setData] = useState(defaultState);
@@ -104,4 +106,28 @@ export function useInfiniteScroll(data: any, page: number) {
   }, [count]);
 
   return [paginatedArray, handleScroll];
+}
+
+export function useReleases() {
+  const { setLoadState, setReleases }: any = useStore();
+  useEffect(() => {
+    let mounted: boolean = true;
+    let asycnCall = async () => {
+      try {
+        let result: any = await releaseData();
+        // console.log(result.releases);
+        if (mounted) {
+          setLoadState("loaded");
+          setReleases(result.releases);
+        }
+      } catch (err) {
+        setLoadState("failed");
+        console.log(err);
+      }
+    };
+    asycnCall();
+    return () => {
+      mounted = false;
+    };
+  }, []);
 }
